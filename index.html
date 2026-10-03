@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<!--
+================================================================
+  TN COLLECTIVE ブランドサイト デザイン案
+  コンセプト：「いいものを、ひとつの棚に。」
+  ・社名の「COLLECTIVE（集まり・持ち寄り）」から着想。選ばれた品物が一つの棚に集まる様子を、
+    大きな欧文ロゴと、棚の仕切りのような罫線グリッドで表現。
+  ・配色：テラコッタ／生成り／墨
+  ・書体：Kaisei Decol（和文）＋ Abril Fatface（欧文）
+  ・デプロイ：Cloudflare Pages にこの index.html をそのままアップロード（ビルド不要）
+
+  ■ 確認事項一覧（本文中にも【確認事項】コメントあり）
+  [ ] 1. CSVの事業内容は「物販」のみ。取扱商品のジャンル・販売チャネル（店舗／EC／卸）を確認し、本文を差し替えてください
+  [ ] 2. キャッチコピー「いいものを、ひとつの棚に。」は仮案です
+  [ ] 3. 社名の「COLLECTIVE」の意味づけ（集まり・持ち寄り）は推測による解釈です
+  [ ] 4. 「TN」の由来は不明のため、本文では解釈していません
+  [ ] 5. 事業内容の3項目（仕入れ／検品・管理／販売・お届け）と「大切にしていること」は一般的な物販の流れをもとにした仮文です
+  [ ] 6. 法人格の有無（商号が「TN COLLECTIVE」のみのため、個人事業か法人かを確認）
+  [ ] 7. 中古品を扱う場合は古物商許可の表示、ネット販売を行う場合は特定商取引法に基づく表記が必要です
+  [ ] 8. 設立年・資本金・従業員数は未確認のため掲載していません
+  [ ] 9. 画像はUnsplashのフリー素材（仮）。実際の商品・倉庫写真への差し替えを推奨
+  使用写真（Unsplash ID）：
+    1605217613423-0a61bd725c8a / 1601647998384-a6e5b618e8f6 / 1771033834141-023d630b3965
+    1560107379-95e9ca7803e0 / 1566576721346-d4a3b4eaeb55 / 1607082348824-0a96f2a4b9da / 1765835065498-5df7ae12bcf2
+================================================================
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TN COLLECTIVE｜物販</title>
+<meta name="description" content="TN COLLECTIVEは、物販事業を行っています。品物を選び、確かめ、必要としている方のもとへお届けします。">
+<meta property="og:title" content="TN COLLECTIVE">
+<meta property="og:description" content="物販事業｜いいものを、ひとつの棚に。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<!-- 【確認事項】og:image・og:url は公開URL確定後に設定 -->
+<meta name="theme-color" content="#b4532a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23b4532a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-size='15' fill='%23f5efe6'%3ETN%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Kaisei+Decol:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --clay:#b4532a;      /* テラコッタ */
+  --clay-deep:#8c3d1d;
+  --ivory:#f5efe6;     /* 生成り */
+  --sand:#e9dfd0;
+  --ink:#2a211c;       /* 墨 */
+  --muted:#6b5d53;
+  --line:rgba(42,33,28,.18);
+  --jp:"Kaisei Decol","Hiragino Mincho ProN","Yu Mincho",serif;
+  --en:"Abril Fatface","Didot","Bodoni 72",serif;
+  --pad:clamp(20px,5vw,64px);
+  --head:68px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--head)}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--jp);font-size:16px;line-height:1.95;letter-spacing:.04em;-webkit-font-smoothing:antialiased;overflow-x:clip;word-break:auto-phrase}
+body.lock{overflow:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.nw{display:inline-block}
+.skip{position:absolute;left:12px;top:-60px;z-index:300;background:var(--ink);color:var(--ivory);padding:10px 14px;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
+
+/* header */
+.site-head{position:fixed;inset:0 0 auto;z-index:100;height:var(--head);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);transition:background .3s,box-shadow .3s}
+.site-head.scrolled{background:rgba(245,239,230,.94);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(6px)}
+.logo{font-family:var(--en);font-size:21px;letter-spacing:.06em;text-decoration:none;line-height:1}
+.logo span{color:var(--clay)}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:30px}
+.gnav a{text-decoration:none;font-size:14px;letter-spacing:.12em;padding:6px 0;background:linear-gradient(var(--clay),var(--clay)) left bottom/0 1px no-repeat;transition:background-size .3s}
+.gnav a:hover{background-size:100% 1px}
+.menu-btn{display:none;width:44px;height:44px;border:0;background:none;position:relative;cursor:pointer;color:var(--ink)}
+.menu-btn span{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .3s,opacity .3s}
+.menu-btn span:nth-child(1){top:16px}.menu-btn span:nth-child(2){top:22px}.menu-btn span:nth-child(3){top:28px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* hero : typographic */
+.hero{padding:calc(var(--head) + clamp(40px,7vw,90px)) var(--pad) clamp(48px,6vw,80px);position:relative}
+.hero-mark{font-family:var(--en);font-size:clamp(32px,10.2vw,210px);line-height:.86;letter-spacing:-.01em;margin:0;color:var(--ink)}
+.hero-mark .row{display:block}
+.hero-mark .row + .row{color:var(--clay);padding-left:clamp(0px,6vw,140px)}
+.hero-lower{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(28px,5vw,72px);margin-top:clamp(36px,5vw,64px);align-items:end}
+.hero-copy h1{margin:0 0 .8em;font-weight:700;font-size:clamp(26px,3.2vw,42px);line-height:1.55;letter-spacing:.12em}
+.hero-copy .biz{display:inline-block;font-size:13px;letter-spacing:.3em;border:1px solid var(--ink);padding:4px 14px;margin-bottom:22px}
+.hero-copy p{margin:0;color:var(--muted);max-width:24em}
+.shelf{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:10px;border-top:2px solid var(--ink);padding-top:10px}
+.shelf figure{margin:0;position:relative;overflow:hidden;background:var(--sand);aspect-ratio:3/4}
+.shelf figure:first-child{aspect-ratio:auto}
+.shelf img{width:100%;height:100%;object-fit:cover}
+.shelf figcaption{position:absolute;left:8px;bottom:8px;font-size:11px;letter-spacing:.14em;background:var(--ivory);padding:2px 8px}
+
+/* sections */
+.sec{padding:clamp(88px,12vw,150px) var(--pad)}
+.wrap{max-width:1160px;margin:0 auto}
+.label{font-family:var(--en);font-size:15px;letter-spacing:.14em;color:var(--clay);display:block;margin-bottom:10px}
+.h2{margin:0 0 .9em;font-weight:700;font-size:clamp(26px,3.2vw,40px);line-height:1.6;letter-spacing:.1em}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* about */
+.about{background:var(--ink);color:var(--ivory)}
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(36px,6vw,96px);align-items:center}
+.about-word{font-family:var(--en);font-size:clamp(40px,6.4vw,92px);line-height:1;margin:0;color:var(--clay)}
+.about-word small{display:block;font-family:var(--jp);font-size:14px;letter-spacing:.24em;color:#cdbfb2;margin-top:18px}
+.about p{color:#e5dbcf;max-width:32em}
+.about .h2{color:var(--ivory)}
+
+/* business */
+.biz-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink);border-left:1px solid var(--line)}
+.biz-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:0 0 30px}
+.biz-card figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--sand)}
+.biz-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.biz-card:hover img{transform:scale(1.04)}
+.biz-card .num{font-family:var(--en);font-size:44px;color:var(--clay);line-height:1;display:block;margin:22px 24px 6px}
+.biz-card h3{margin:0 24px 10px;font-size:21px;letter-spacing:.12em}
+.biz-card p{margin:0 24px;font-size:15px;color:var(--muted)}
+.biz-lead{max-width:36em;color:var(--muted);margin:0 0 48px}
+
+/* values */
+.values{background:var(--sand)}
+.val-list{list-style:none;margin:0;padding:0}
+.val-list li{display:grid;grid-template-columns:7em minmax(0,1fr) minmax(0,1.6fr);gap:24px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.val-list li:first-child{border-top:2px solid var(--ink)}
+.val-list .en{font-family:var(--en);font-size:22px;color:var(--clay)}
+.val-list h3{margin:0;font-size:22px;letter-spacing:.14em}
+.val-list p{margin:0;color:var(--muted)}
+
+/* band */
+.band{position:relative;height:clamp(260px,42vw,520px);overflow:hidden;background:var(--sand)}
+.band img{width:100%;height:100%;object-fit:cover}
+.band p{position:absolute;right:var(--pad);bottom:clamp(20px,4vw,48px);margin:0;background:var(--ivory);padding:14px 22px;font-size:clamp(17px,2vw,22px);letter-spacing:.16em}
+
+/* company */
+.co .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(28px,6vw,90px)}
+.co-table{margin:0;border-top:2px solid var(--ink)}
+.co-table div{display:grid;grid-template-columns:8em 1fr;border-bottom:1px solid var(--line)}
+.co-table dt,.co-table dd{margin:0;padding:20px 0}
+.co-table dt{font-size:14px;letter-spacing:.16em;color:var(--muted)}
+
+/* footer */
+.site-foot{background:var(--ink);color:#cdbfb2;padding:56px var(--pad) calc(36px + env(safe-area-inset-bottom,0px))}
+.site-foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.site-foot .logo{color:var(--ivory);font-size:30px}
+.site-foot small{font-size:12px;letter-spacing:.1em}
+
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .gnav{position:fixed;inset:0;z-index:-1;background:var(--ivory);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+  .gnav.open{opacity:1;visibility:visible}
+  .gnav ul{flex-direction:column;align-items:center;gap:26px}
+  .gnav a{font-size:19px}
+  .hero-lower,.about .wrap,.co .wrap{grid-template-columns:1fr}
+  .biz-grid{grid-template-columns:1fr}
+  .val-list li{grid-template-columns:1fr;gap:6px}
+  .co-table div{grid-template-columns:1fr}
+  .co-table dt{padding-bottom:0}.co-table dd{padding-top:4px}
+}
+@media (max-width:520px){
+  .shelf{grid-template-columns:1fr 1fr}
+  .shelf figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-head" id="siteHead">
+  <!-- 【確認事項】ロゴは商号の欧文表記をそのまま組んだ仮ロゴです -->
+  <a class="logo" href="#top" aria-label="TN COLLECTIVE トップへ">TN <span>COLLECTIVE</span></a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  <nav class="gnav" id="gnav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="#about">私たちについて</a></li>
+      <li><a href="#business">事業内容</a></li>
+      <li><a href="#values">大切にしていること</a></li>
+      <li><a href="#company">会社概要</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-label="メインビジュアル">
+    <p class="hero-mark" aria-hidden="true"><span class="row">TN</span><span class="row">COLLECTIVE</span></p>
+    <div class="hero-lower">
+      <div class="hero-copy">
+        <span class="biz">物販事業</span>
+        <!-- 【確認事項】キャッチコピーは仮案です -->
+        <h1><span class="nw">いいものを、</span><span class="nw">ひとつの棚に。</span></h1>
+        <p>TN COLLECTIVEは、物販を行う事業者です。品物を選び、確かめ、必要としている方のもとへ届けています。</p>
+      </div>
+      <div class="shelf">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1605217613423-0a61bd725c8a?auto=format&fit=crop&w=1920&q=80" alt="雑貨や小物が並べられた明るい売り場" width="1600" height="2000">
+          <figcaption>SELECT</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1601647998384-a6e5b618e8f6?auto=format&fit=crop&w=1600&q=80" alt="木の棚に整然と並ぶ商品" width="1600" height="2000">
+          <figcaption>STOCK</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1560107379-95e9ca7803e0?auto=format&fit=crop&w=1600&q=80" alt="テーブルに並べられた器や植物の商品" width="1600" height="2000">
+          <figcaption>DELIVER</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <!-- 【確認事項】「COLLECTIVE＝集まり・持ち寄り」という社名の解釈は推測です。由来をご確認ください -->
+      <p class="about-word reveal" aria-hidden="true">Collective<small>集まり、持ち寄り</small></p>
+      <div class="reveal">
+        <span class="label">About</span>
+        <h2 class="h2" id="about-h"><span class="nw">集めたものが、</span><span class="nw">ひとつの価値になる。</span></h2>
+        <!-- 【確認事項】以下の文章は社名から膨らませた仮文です -->
+        <p>ひとつひとつは小さな品物でも、選ばれて一つの棚に並んだとき、そこには選んだ人の目が表れます。</p>
+        <p>TN COLLECTIVEは、品物を仕入れ、状態を確かめ、必要としている方へお届けする物販の仕事をしています。並べる品物の一つひとつに、手に取った方が納得できる理由があるように。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="business" aria-labelledby="biz-h">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Business</span>
+        <h2 class="h2" id="biz-h">事業内容</h2>
+        <p class="biz-lead">物販事業を行っています。品物が手元に届くまでの流れを、ひとつずつ丁寧に担います。</p>
+      </div>
+      <!-- 【確認事項】3項目の内容はCSV「物販」から一般的な流れを想定した仮文です。取扱商品・販売チャネルに合わせて修正してください -->
+      <div class="biz-grid reveal">
+        <article class="biz-card">
+          <figure><img src="https://images.unsplash.com/photo-1771033834141-023d630b3965?auto=format&fit=crop&w=1600&q=80" alt="商品が陳列された明るい店内" loading="lazy" width="1600" height="1200"></figure>
+          <span class="num">01</span>
+          <h3>仕入れ</h3>
+          <p>需要や状態を見きわめながら、取り扱う品物を選んで仕入れます。</p>
+        </article>
+        <article class="biz-card">
+          <figure><img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1600&q=80" alt="梱包した箱を手渡す様子" loading="lazy" width="1600" height="1200"></figure>
+          <span class="num">02</span>
+          <h3>検品・管理</h3>
+          <p>一点ずつ状態を確かめ、お届けできる品物として管理します。</p>
+        </article>
+        <article class="biz-card">
+          <figure><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1600&q=80" alt="並べられた赤と黒のショッピングバッグ" loading="lazy" width="1600" height="1200"></figure>
+          <span class="num">03</span>
+          <h3>販売・お届け</h3>
+          <p>必要としている方のもとへ、品物を販売しお届けします。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <figure class="band" style="margin:0">
+    <img src="https://images.unsplash.com/photo-1765835065498-5df7ae12bcf2?auto=format&fit=crop&w=1600&q=80" alt="植物と雑貨が並ぶ木の棚" loading="lazy" width="1600" height="900">
+    <!-- 【確認事項】帯のコピーは仮案です -->
+    <p>選ぶ。確かめる。届ける。</p>
+  </figure>
+
+  <section class="sec values" id="values" aria-labelledby="val-h">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Values</span>
+        <h2 class="h2" id="val-h">大切にしていること</h2>
+      </div>
+      <!-- 【確認事項】「大切にしていること」の3項目は仮文です -->
+      <ul class="val-list reveal">
+        <li><span class="en">Select</span><h3>選ぶ</h3><p>並べる理由のある品物だけを扱う。数よりも、ひとつずつの確かさを大切にします。</p></li>
+        <li><span class="en">Check</span><h3>確かめる</h3><p>品物の状態は、手に取る方の安心に直結します。お届けする前に、きちんと確かめます。</p></li>
+        <li><span class="en">Deliver</span><h3>届ける</h3><p>受け取った方が気持ちよく使い始められるよう、お届けまでを丁寧に。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec co" id="company" aria-labelledby="co-h">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Company</span>
+        <h2 class="h2" id="co-h">会社概要</h2>
+      </div>
+      <dl class="co-table reveal">
+        <div><dt>商号</dt><dd>TN COLLECTIVE</dd></div>
+        <div><dt>代表者</dt><dd>中野孝之</dd></div>
+        <div><dt>所在地</dt><dd>京都府京都市西京区樫原久保町</dd></div>
+        <div><dt>事業内容</dt><dd>物販</dd></div>
+        <!-- 【確認事項】設立・資本金・古物商許可番号（中古品を扱う場合）は未確認のため非表示 -->
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="TN COLLECTIVE トップへ">TN <span>COLLECTIVE</span></a>
+    <small>&copy; <span id="year">2026</span> TN COLLECTIVE</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document,btn=d.getElementById('menuBtn'),nav=d.getElementById('gnav'),head=d.getElementById('siteHead');
+  function set(o){btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'メニューを閉じる':'メニューを開く');nav.classList.toggle('open',o);d.body.classList.toggle('lock',o);}
+  btn.addEventListener('click',function(){set(btn.getAttribute('aria-expanded')!=='true');});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  addEventListener('resize',function(){if(innerWidth>860)set(false);});
+  function sc(){head.classList.toggle('scrolled',scrollY>30);}
+  addEventListener('scroll',sc,{passive:true});sc();
+  var els=d.querySelectorAll('.reveal'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
+  else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.15,rootMargin:'0px 0px -5% 0px'});els.forEach(function(e){io.observe(e);});}
+  var y=d.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
